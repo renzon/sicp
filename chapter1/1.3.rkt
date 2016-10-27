@@ -1,4 +1,5 @@
 #lang racket
+(require test-engine/racket-tests)
 
 (define (square x) (* x x))
 
@@ -11,10 +12,11 @@
   )
 )
 
-(sum-square-2-bigger-numbers 1 2 3)
-(sum-square-2-bigger-numbers 1 2 3)
-(sum-square-2-bigger-numbers 2 3 1)
-(sum-square-2-bigger-numbers 2 1 3)
-(sum-square-2-bigger-numbers 3 1 2)
-(sum-square-2-bigger-numbers 3 2 1)
+(check-expect 13 (sum-square-2-bigger-numbers 1 2 3))
+(check-expect 13 (sum-square-2-bigger-numbers 1 3 2))
+(check-expect 13 (sum-square-2-bigger-numbers 2 1 3))
+(check-expect 13 (sum-square-2-bigger-numbers 2 3 1))
+(check-expect 13 (sum-square-2-bigger-numbers 3 2 1))
+(check-expect 13 (sum-square-2-bigger-numbers 3 1 2))
 
+(test)

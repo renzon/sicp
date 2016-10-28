@@ -7,7 +7,7 @@
 
 (define (sum-square-2-bigger-numbers a b c)
   (if (and (< a b) (< a c))
-      (sum-square b c)
+      (sum-square b c) ;Rotate until minor element is found
       (sum-square-2-bigger-numbers c a b)
   )
 )

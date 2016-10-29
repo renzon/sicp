@@ -170,4 +170,28 @@
 |#
 (check-expect 65536 (A 3 3))
 
+(define (f n) (A 0 n))
+(define (double n) (* 2 n))
+
+(check-expect (f 10) (double 10))
+
+(define (g n) (A 1 n))
+(define (expt-2 n) (expt 2 n))
+
+(check-expect (g 10) (expt-2 10))
+
+(define (h n) (A 2 n))
+(define (expt-2-expt-2 n)
+  (if (> n 1)
+      (expt-2 (expt-2-expt-2 (- n 1)))
+      2))
+
+(check-expect (h 1) (expt-2-expt-2 1))
+(check-expect (h 2) (expt-2-expt-2 2))
+(check-expect (h 3) (expt-2-expt-2 3))
+(check-expect (h 4) (expt-2-expt-2 4))
+
+(define (k n) (* 5 n n)) ; 5*n^2
+
+
 (test)
